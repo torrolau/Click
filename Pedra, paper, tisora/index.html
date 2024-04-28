@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Rock, Paper, scissors</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="contingut">
+        <div class="recuadrito">
+           <h1>Rock,</h1> 
+           <h1>paper, </h1> 
+           <h1>scissors</h1> 
+        </div>
+        
+        <div class="seccionom">
+            <div class="requadredret">
+                <label for="name">Your name:</label>
+            <input type="text" id="seleccionar" />
+            <button onclick="startGame()">Play!</button>
+            </div>
+          <div class="taula">
+            <h2>Work&Play</h2>
+            <ol id="ranking"></ol>
+          </div>
+        </div>
+          
+        
+        <div id="game" style="display: none">
+            <p>Select one:</p>
+            <div class="botons">
+               <button id="rock" type="button">
+                    <img src="images/pedra.png">
+                </button>
+               <button id="paper" type="button">
+                    <img src="images/paper.png">
+                </button>
+                <button id="scissors" type="button">
+                      <img src="images/tisores.png">
+               </button>
+           </div>
+           <div id="computer">
+               <img src="">
+               <p id="result"></p>
+           </div>
+        </div>
+        
+    </div>
+	
+	
+	
+
+	<script src="js/js.js"></script>
+</body>
+</html>

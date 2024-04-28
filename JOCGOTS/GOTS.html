@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Dónde está la bolita?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .cups {
+            display: flex;
+            gap: 20px;
+        }
+        .cup {
+            width: 100px;
+            height: 100px;
+            background-color: #a6bddc;
+            border-radius: 50px 50px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+        .ball {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="cups">
+            <div class="cup" onclick="guess(0)">
+                <div class="ball hidden" id="ball0"></div>
+            </div>
+            <div class="cup" onclick="guess(1)">
+                <div class="ball hidden" id="ball1"></div>
+            </div>
+            <div class="cup" onclick="guess(2)">
+                <div class="ball hidden" id="ball2"></div>
+            </div>
+        </div>
+        <button onclick="shuffleCups()">Mezclar y Jugar de Nuevo</button>
+    </div>
+
+    <script>
+        let correctPosition = Math.floor(Math.random() * 3); // Position of the ball
+
+        // Inicializar el juego
+        function initializeGame() {
+            document.querySelectorAll('.ball').forEach((ball, index) => {
+                if (index === correctPosition) {
+                    ball.classList.add('hidden'); // Ocultar la bolita
+                } else {
+                    ball.classList.add('hidden'); // Ocultar la bolita
+                }
+            });
+        }
+
+        // Mezclar los vasos
+        function shuffleCups() {
+            correctPosition = Math.floor(Math.random() * 3);
+            initializeGame();
+            alert("Los vasos se han mezclado. ¡Intenta encontrar la bolita!");
+        }
+
+        // Manejar la adivinanza
+        function guess(position) {
+            if (position === correctPosition) {
+                const ball = document.querySelectorAll('.ball')[position];
+                ball.classList.remove('hidden'); // Mostrar la bolita si el jugador adivinó correctamente
+                alert("¡Felicidades! ¡Encontraste la bolita!");
+            } else {
+                alert("¡Lo siento! ¡Inténtalo de nuevo!");
+            }
+        }
+
+        // Inicializar el juego al cargar la página
+        initializeGame();
+    </script>
+</body>
+</html>
